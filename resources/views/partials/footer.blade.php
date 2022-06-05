@@ -18,9 +18,10 @@
                 </div>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/Ovatecperu/">
-                        <img id="social-fb" src="{{URL::asset('/public/images/Facebook_icon.svg')}}" style="width: 50px;"></a>
+                        <img id="social-fb" src="{{ Storage::url('images/Facebook_icon.svg') }}" style="width: 50px;"></a>
                     <a href="https://www.instagram.com/ovatecventas/">
-                        <img id="social-in" class="{{URL::asset('/public/images/Instagram_logo.svg')}}" style="width: 50px;"></a>
+                    
+                        <img id="social-in" src="{{ Storage::url('images/Instagram_logo.svg') }}" style="width: 50px;"></a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-2 footers-two">
