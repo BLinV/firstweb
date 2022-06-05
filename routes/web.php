@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 Route::view('/','pages/inicio')->name('inicio');
-Route::view('/','pages/contact')->name('contacto');
+Route::view('producto','pages/producto')->name('producto');
 /*Route::get('personas','App\Http\Controllers\PersonasController@index')->name('personas.index');
 Route::get('personas/create','App\Http\Controllers\PersonasController@create')->name('personas.create');
 Route::post('personas','App\Http\Controllers\PersonasController@store')->name('personas.store');
 Route::get('personas/{id}', 'App\Http\Controllers\PersonasController@show')->name('personas.show');*/
-Route::view('contacto','pages/contact')->name('contacto');
+Route::view('contacto','pages/contacto')->name('contacto');
 //Route::resource('servicios','App\Http\Controllers\PersonasController')->only('index','show');
