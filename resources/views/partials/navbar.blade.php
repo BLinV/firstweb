@@ -1,10 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="{{ Storage::url('images/icon.svg') }}" alt="logo" width="100" height="36"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-                <i class="fas fa-bars" style="color:#FC4914; font-size:28px;"></i></span>
-        </button>
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>

@@ -1,10 +1,10 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+
 Route::view('/','pages/inicio')->name('inicio');
 
 Route::view('personas','pages/personas/personas')->name('personas');

@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Persona;
 use App\Http\Requests\CreatePersonaRequest;
-
+use Illuminate\Support\Facades\DB;
 class PersonasController extends Controller
 {
     /**
@@ -24,7 +24,8 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        return view('pages/personas/create');
+        $tiendas = DB::table('tiendas')->get();//Compact pasa variables
+        return view('pages/personas/create', compact('tiendas'));
     }
 
     /**
