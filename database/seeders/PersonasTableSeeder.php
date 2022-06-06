@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PersonalTableSeeder extends Seeder
+class PersonasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,7 @@ class PersonalTableSeeder extends Seeder
      */
     public function run()
     {
-        
-        DB::table('personal')->insert(
+        DB::table('personas')->insert(
             [['dni' => '11111111',
             'nom_per' => 'Mario Jose Alberto',
             'fec_nac' => '1990-01-10',
