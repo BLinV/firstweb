@@ -16,7 +16,6 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->Increments('id_prod');
             $table->char('nom_com',80);
-            $table->timestamps();
         });
     }
 

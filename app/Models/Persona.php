@@ -9,5 +9,6 @@ class Persona extends Model
 {
     protected $primaryKey = 'id_per';
     protected $guarded = [];
-    //use HasFactory;
+    use HasFactory;
+    protected $table="personas";
 }

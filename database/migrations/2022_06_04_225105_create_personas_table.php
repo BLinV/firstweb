@@ -17,6 +17,7 @@ class CreatePersonasTable extends Migration
             $table->Increments('id_per');
             $table->char('dni',8);
             $table->char('nom_per',70);
+                $table->string('foto')->nullable();
             $table->date('fec_nac');
             $table->char('est_civ',1);
             $table->char('num_tel_cel',9);
@@ -27,7 +28,6 @@ class CreatePersonasTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

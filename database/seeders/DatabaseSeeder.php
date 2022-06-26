@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
             ProveedoresTableSeeder::class,
             PersonasTableSeeder::class,
         ]);
+        \App\Models\User::factory(10)->create();
     }
 }

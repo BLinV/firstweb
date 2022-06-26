@@ -3,6 +3,7 @@
 @section('content')
 <h2>Personal</h2>
 <a href="{{ route('personas.create') }}">Nueva persona</a>
+<!-- https://www.youtube.com/watch?v=Mylh7H844Ro -->
 <table class="table">
     <thead>
         <tr>
@@ -18,6 +19,7 @@
             <th scope="col"> Fecha Registro </th>
             <th scope="col"> &Uacute;ltima Actualizaci&oacute;n </th>
         </tr>
+    </thead>
         @foreach($personas as $item)
         <tr>
             <th scope="row">
@@ -35,7 +37,8 @@
             <td>{{ $item->updated_at }}</td>
         <tr>
         @endforeach
-    </thead>
 </table>
-{{ $personas->links() }}
+<ul class="d-flex justify-content-center">
+    {!! $personas->links('layout.paginationlinks') !!}
+</ul>
 @endsection

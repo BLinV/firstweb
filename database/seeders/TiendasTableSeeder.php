@@ -14,9 +14,15 @@ class TiendasTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tiendas')->insert(
-            [['direccion' => 'Jr. Pizarro N° 268 Int.1',
-            'ubicacion' => 'Trujillo - Trujillo']]
-        );
+        $data = [['nombre' => 'Ovatec 1',
+                'direccion' => 'Jr. Pizarro Cuadra 1 Oficina 102, antes de la OR',
+                'ubicacion' => 'Trujillo - Trujillo'],
+                ['nombre' => 'Oliver Master',
+                'direccion' => 'Jr. Pizarro Cuadra 2, frente a la iglesia Santo Domingo',
+                'ubicacion' => 'Trujillo - Trujillo'],
+                ['nombre' => 'Ovatec 3',
+                'direccion' => 'Jr. Pizarro Cuadra 3 Oficina 137, pasaje Extremadura',
+                'ubicacion' => 'Trujillo - Trujillo']];
+        DB::table('tiendas')->insert($data);
     }
 }

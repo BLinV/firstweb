@@ -15,12 +15,11 @@ class CreateTiendasTable extends Migration
     {
         Schema::create('tiendas', function (Blueprint $table) {
             $table->Increments('id_tiend');
+            $table->char('nombre',25);
             $table->char('direccion',100);
             $table->char('ubicacion',70)->default('Trujillo');
-            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -14,23 +14,6 @@ class PersonasTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('personas')->insert(
-            [['dni' => '11111111',
-            'nom_per' => 'Mario Jose Alberto',
-            'fec_nac' => '1990-01-10',
-            'est_civ' => 'S',
-            'num_tel_cel' => '936984002',
-            'direccion' => '382 Socrates - Trujillo - La Libertad',
-            'id_cargo' => '2',
-            'id_tiend' => '1'],
-            ['dni' => '11111112',
-            'nom_per' => 'Dario Veltran Marvin',
-            'fec_nac' => '1985-03-10',
-            'est_civ' => 'S',
-            'num_tel_cel' => '936984003',
-            'direccion' => '618 Av. Carlos Valderrama - Trujillo - La Libertad',
-            'id_cargo' => '3',
-            'id_tiend' => '1']]
-        );
+        \App\Models\Persona::factory(50)->create();
     }
 }
