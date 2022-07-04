@@ -2,7 +2,9 @@
 @section('title','Personal')
 @section('content')
 <h2>Personal</h2>
-<a href="{{ route('personas.create') }}">Nueva persona</a>
+@auth
+    <a href="{{ route('personas.create') }}">Nueva persona</a>
+@endauth
 <!-- https://www.youtube.com/watch?v=Mylh7H844Ro -->
 <table class="table">
     <thead>

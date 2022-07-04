@@ -18,6 +18,7 @@
 <body>
 
     @include('partials.navbar')
+    @include('partials.sesion-acto')
     @yield('content')
     <div>
         @include('partials.footer')

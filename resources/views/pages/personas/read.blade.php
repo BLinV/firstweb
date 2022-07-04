@@ -1,10 +1,12 @@
 @extends('layout.layout') <!-- cambiar a detail -->
-@section('title','Personal | '. $persona->id_per)
+@section('title','Personal | Detalle '. $persona->id_per)
 @section('content')
 <table cellpadding="3" cellspaceing="5">
     <tr>
         <td colspan="4">{{ $persona->dni }} {{ $persona->nom_per }}
-            <a href="{{ route('personas.edit',$persona) }}">Editar</a>
+            @auth
+                <a href="{{ route('personas.edit',$persona) }}">Editar</a>
+            @auth
         </td>
         <td colspan="4">
             Eliminar

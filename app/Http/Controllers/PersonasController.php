@@ -6,6 +6,9 @@ use App\Http\Requests\CreatePersonaRequest;
 use Illuminate\Support\Facades\DB;
 class PersonasController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +39,7 @@ class PersonasController extends Controller
     public function store(CreatePersonaRequest $request)
     {
         Persona::create($request->validated());
-        return redirect()->route('personas.index');
+        return redirect()->route('personas.index')->with('acto','Los datos del colaborador fueron agregados correctamente.');
     }
     /**
      * Display the specified resource.
@@ -69,7 +72,7 @@ class PersonasController extends Controller
     public function update(Persona $id_per, CreatePersonaRequest $request)
     {
         $id_per->update($request->validated());
-        return redirect()->route('personas.show',$id_per);
+        return redirect()->route('personas.show',$id_per)->with('acto','Los datos del colaborador fueron actualizados correctamente.');
     }
     /**
      * Remove the specified resource from storage.
@@ -80,6 +83,6 @@ class PersonasController extends Controller
     public function destroy($id)
     {
         //$persona->delete();
-        //return redirect()->route("personas.index");
+        //return redirect()->route("personas.index")->with('acto','El colaborador fue retirado correctamente.');
     }
 }

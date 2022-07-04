@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="{{ Storage::url('images/icon.svg') }}" alt="logo" width="100" height="36"></a>
-        <form class="d-flex">
+        <!--<form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
+        </form>-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto me-2 mb-lg-0">
                 <li class="nav-item {{ Request::is('producto') && ! Request::is('producto/{cod}') ? 'active' : '' }}">
@@ -68,6 +68,17 @@
             <th scope="col" class="{{ setArchivo('personas') }}"><a href="/personas">Personal</a></th>
             <th scope="col" class="{{ setArchivo('producto') }}"><a href="/producto">Productos</a></th>
             <th scope="col" class="{{ setArchivo('contacto') }}"><a href="/contacto">Contacto</a></th>
+            @guest
+                <th><a href="{{ route('login') }}">Login</a></th>
+            @else
+            <th>
+                <a href="#" onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+            </th>
+            @endguest
         </tr>
     </thead>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
 </table>

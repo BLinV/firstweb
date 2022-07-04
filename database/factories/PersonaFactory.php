@@ -16,7 +16,7 @@ class PersonaFactory extends Factory
         return [
             'dni' => $this->faker->randomNumber(8,false),
             'nom_per' => $this->faker->name(),
-                'foto'=>$this->faker->name(),
+                //'foto'=>$this->faker->name(),
             'fec_nac' => $this->faker->date(),
             'est_civ' => $this->faker->randomElement(['S','C','V','D']),
             'num_tel_cel' => $this->faker->randomNumber(9,false),
