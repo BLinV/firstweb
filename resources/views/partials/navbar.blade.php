@@ -7,60 +7,104 @@
         </form>-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto me-2 mb-lg-0">
-                <li class="nav-item {{ Request::is('producto') && ! Request::is('producto/{cod}') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{url('/producto')}}">
-                        <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-                        Productos
-                    </a>
-                </li>
-                <li class="nav-item {{ Request::is('contacto') ? 'active' : ''}}">
-                    <a class="nav-link" href="{{ url('/contacto') }}">
-                        <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-                        Contacto
-                    </a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Iniciar sesi&oacute;n
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="nav-item">
-                            <form class="container-fluid" action="{{ url('/login') }}" method="POST" style="display:inline">
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1">@</span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                </div>
-                                <button class="btn btn-outline-success me-2" type="submit">Iniciar sesi&oacute;n</button>
-                            </form>
-
-                        </li>
-                        <!--<li class="nav-item {{ Request::is('login') && ! Request::is('auth/login')? 'active' : ''}}">
-                            <a class="dropdown-item" href="{{ url('/login') }}">
-                                <span class="glyphicon glyphicon-film" aria-hidden="true"></span>Iniciar sesión</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="{{ url('/logout') }}" method="POST" style="display:inline">{{ csrf_field() }}
-                                <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
-                                    Salir de sistema
-                                </button>
-                            </form>
-                        </li>-->
-                        <li>
-                            <hr class="dropdown-divider">¿Eres nuevo?
-                        </li>
-                        <li class="nav-item {{ Request::is('register')? 'active' : ''}}">
-                            <a class="dropdown-item" href="{{url('/register')}}">
-                                <span class="glyphicon glyphicon-film" aria-hidden="true"></span>Crear cuenta</a>
-                            <!--<button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>-->
-                        </li>
-                    </ul>
-                </li>
+                @guest
+                    <li class="nav-item {{ Request::is('tienda') }}">
+                        <a class="nav-link" href="{{url('/tienda')}}">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                            Tienda
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Request::is('contacto') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{ url('/contacto') }}">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                            Contacto
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @guest
+                                Login
+                            @else
+                                {{ Auth::user()->name }}
+                            @endguest
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                @guest
+                                    <form class="container-fluid" action="{{ url('/login') }}" method="GET" style="display:inline" aria-hidden="true">
+                                        <!-- <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1">@</span>
+                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div> -->
+                                        <button class="btn btn-outline-success me-2" type="submit">Iniciar sesi&oacute;n</button>
+                                    </form>
+                                    <li>
+                                        <hr class="dropdown-divider">¿Eres nuevo?
+                                    </li>
+                                    <form class="container-fluid" action="{{ url('/register') }}" method="GET" style="display:inline" aria-hidden="true">
+                                        <button class="btn btn-outline-success me-2" type="submit">Registrarse</button>
+                                    </form>
+                                @else
+                                    <a href="#" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                                @endguest
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                    <li class="nav-item {{ Request::is('producto')  && ! Request::is('producto/{cod}') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{url('/producto')}}">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                            Productos
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Request::is('personas') ? 'active' : '' && ! Request::is('producto/{id_per}') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('/personas') }}">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                            Personal
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @guest
+                                Login
+                            @else
+                                {{ Auth::user()->name }}
+                            @endguest
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                @guest
+                                    <form class="container-fluid" action="{{ url('/login') }}" method="GET" style="display:inline" aria-hidden="true">
+                                        <!-- <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1">@</span>
+                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div> -->
+                                        <button class="btn btn-outline-success me-2" type="submit">Iniciar sesi&oacute;n</button>
+                                    </form>
+                                    <li>
+                                        <hr class="dropdown-divider">¿Eres nuevo?
+                                    </li>
+                                    <form class="container-fluid" action="{{ url('/register') }}" method="GET" style="display:inline" aria-hidden="true">
+                                        <button class="btn btn-outline-success me-2" type="submit">Registrarse</button>
+                                    </form>
+                                @else
+                                    <a href="#" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                                @endguest
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+                
             </ul>
         </div>
     </div>
 </nav>
-
+<!--
 <table class="table" alling="center">
     <thead class="table table-bordered">
         <tr>
@@ -81,4 +125,4 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
     </form>
-</table>
+</table>-->

@@ -1,16 +1,15 @@
         @csrf
         <tr>
             <th>DNI</th>
-            <td><input type="text" name="dni" maxlength="8" value="{{ old('dni',$persona->dni) }}"><br>{{ $errors->first('dni') }}</td>
+            <td><input type="text" name="dni" maxlength="8" placeholder="Ingresa el DNI" value="{{ old('dni',$persona->dni) }}"><br>{{ $errors->first('dni') }}</td>
         </tr>
         <tr>
             <th>NOMBRE</th>
-            <td><input type="text" name="nom_per" maxlength="70" value="{{ old('nom_per',$persona->nom_per) }}"><br>{{ $errors->first('nom_per') }}</td>
+            <td><input type="text" name="nom_per" maxlength="70" placeholder="Ingresa el CORREO" value="{{ old('nom_per',$persona->nom_per) }}"><br>{{ $errors->first('nom_per') }}</td>
         </tr>
         <tr>
             <th>FECHA NACIMIENTO</th>
             <td>
-                <label for="fec_nac">Seleccione fecha:</label>
                 <input type="date" id="fec_nac" name="fec_nac" placeholder="yyyy-mm-dd" value="{{ old('fec_nac',$persona->fec_nac) }}" min="1980-01-01" max="2100-12-31">
                 <br>{{ $errors->first('fec_nac') }}
             </td>
@@ -27,11 +26,11 @@
         </tr>
         <tr>
             <th>N&Uacute;MERO TELEF&Oacute;NICO</th>
-            <td><input type="text" name="num_tel_cel" maxlength="9" value="{{ old('num_tel_cel',$persona->num_tel_cel) }}"><br>{{ $errors->first('num_tel_cel') }}</td>
+            <td><input type="text" name="num_tel_cel" maxlength="9" placeholder="Ingresa el TELÉFONO" value="{{ old('num_tel_cel',$persona->num_tel_cel) }}"><br>{{ $errors->first('num_tel_cel') }}</td>
         </tr>
         <tr>
             <th>DIRECCI&Oacute;N</th>
-            <td><input type="text" name="direccion" maxlength="100" value="{{ old('direccion',$persona->direccion) }}"><br>{{ $errors->first('direccion') }}</td>
+            <td><input type="text" name="direccion" maxlength="100" placeholder="Ingresa la DIRECCIÓN" value="{{ old('direccion',$persona->direccion) }}"><br>{{ $errors->first('direccion') }}</td>
         </tr>
         <tr>
             <th>CARGO</th>
@@ -48,7 +47,7 @@
             <th>TIENDA</th>
             <td><select name="id_tiend" id="id_tiend">
                     @foreach($tiendas as $item)
-                    <option value="{{ $item->id_tiend }}">{{ $item->direccion }}</option>
+                    <option value="{{ $item->id_tiend }}">{{ $item->nombre }}</option>
                     @endforeach
                 </select></td>
         </tr>

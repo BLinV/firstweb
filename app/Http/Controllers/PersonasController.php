@@ -57,10 +57,10 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Persona $id_per)
+    public function edit(Persona $persona)
     {
         $tiendas = DB::table('tiendas')->get();
-        return view('pages/personas/edit',['persona'=>$id_per], compact('tiendas'));
+        return view('pages/personas/edit',['persona'=>$persona], compact('tiendas'));
     }
     /**
      * Update the specified resource in storage.
@@ -69,10 +69,10 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Persona $id_per, CreatePersonaRequest $request)
+    public function update(Persona $persona, CreatePersonaRequest $request)
     {
-        $id_per->update($request->validated());
-        return redirect()->route('personas.show',$id_per)->with('acto','Los datos del colaborador fueron actualizados correctamente.');
+        $persona->update($request->validated());
+        return redirect()->route('personas.show',$persona)->with('acto','Los datos del colaborador fueron actualizados correctamente.');
     }
     /**
      * Remove the specified resource from storage.

@@ -6,7 +6,7 @@
         <td colspan="4">{{ $persona->dni }} {{ $persona->nom_per }}
             @auth
                 <a href="{{ route('personas.edit',$persona) }}">Editar</a>
-            @auth
+            @endauth
         </td>
         <td colspan="4">
             Eliminar

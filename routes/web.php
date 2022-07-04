@@ -24,7 +24,7 @@ Route::view('producto','pages/productos/productos')
 //Contacto
 Route::view('contacto','pages/contacto')                                         //Vista de contacto
     ->name('contacto');
-Route::post('contacto','App\Http\Controllers\ContactoController@store')->name('contacto.store');    //Envío de mensaje
+Route::post('contacto',[ContactoController::class, 'store'])->name('contacto.store');    //Envío de mensaje
 
 //Logueo
 //Route::view('login','pages/login')->name('login'); //Post

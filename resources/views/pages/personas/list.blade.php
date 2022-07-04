@@ -1,9 +1,9 @@
 @extends('layout.layout')
 @section('title','Personal')
 @section('content')
-<h2>Personal</h2>
+<h2>Lista de Personal Actual</h2>
 @auth
-    <a href="{{ route('personas.create') }}">Nueva persona</a>
+    <a href="{{ route('personas.create') }}">Ingresar Personal</a>
 @endauth
 <!-- https://www.youtube.com/watch?v=Mylh7H844Ro -->
 <table class="table">
