@@ -64,6 +64,14 @@
                             Personal
                         </a>
                     </li>
+
+                    <li class="nav-item {{ Request::is('clientes') ? 'active' : '' && ! Request::is('clientes/{id_cli}') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('/clientes') }}">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                            Clientes
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             @guest

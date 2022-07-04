@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             TiendasTableSeeder::class,
             ProveedoresTableSeeder::class,
             PersonasTableSeeder::class,
+            ClienteTableSeeder::class,
         ]);
         \App\Models\User::factory(10)->create();
     }

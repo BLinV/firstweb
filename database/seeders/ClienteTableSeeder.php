@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class PersonasTableSeeder extends Seeder
+class ClienteTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class PersonasTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Persona::factory(50)->create();
+        \App\Models\Cliente::factory(100)->create();
     }
 }

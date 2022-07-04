@@ -1,11 +1,15 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Cliente;
+use App\Http\Requests\CreateClienteRequest;
+use CreateClientesTable;
 use Illuminate\Support\Facades\DB;
-//use App\Http\Requests\CreatePersonaRequest;
-
-class TiendasController extends Controller
+class ClientesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,9 +17,9 @@ class TiendasController extends Controller
      */
     public function index()
     {
-        
+        $clientes = Cliente::orderBy('id_cli','desc')->paginate(10);
+        return view('pages/clientes/list', ['clientes'=>$clientes]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -23,41 +27,39 @@ class TiendasController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/clientes/create')->with('cliente', new Cliente);
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateClienteRequest $request)
     {
-        //
+        Cliente::create($request->validated());
+        return redirect()->route('clientes.index')->with('acto','Los datos del cliente fueron agregados correctamente.');
     }
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_cli)
     {
+        return view('pages/clientes/detail',['cliente' => Cliente::find($id_cli)]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cliente $cliente)
     {
-        //
+        return view('pages/clientes/edit',['cliente'=>$cliente]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -65,11 +67,11 @@ class TiendasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Cliente $cliente, CreateClienteRequest $request)
     {
-        //
+        $cliente->update($request->validated());
+        return redirect()->route('clientes.show',$cliente)->with('acto','Los datos del cliente fueron actualizados correctamente.');
     }
-
     /**
      * Remove the specified resource from storage.
      *

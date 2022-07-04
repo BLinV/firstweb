@@ -24,7 +24,7 @@
             <div class="col-xs-12 col-sm-6 col-md-2 footers-two">
                 <h5>Nosotros </h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Con&oacute;cenos</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=Pxq-CBVtFF4">Con&oacute;cenos</a></li>
                     <li><a href="">&Uacute;nete a nuestro equipo</a></li>
                     <li><a href="">Nuestras tiendas</a></li>
                 </ul>

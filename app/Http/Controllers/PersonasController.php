@@ -16,7 +16,7 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $personas = Persona::paginate(10);
+        $personas = Persona::orderBy('id_per','desc')->paginate(10);
         return view('pages/personas/list', ['personas'=>$personas]);
     }
     /**
@@ -49,7 +49,7 @@ class PersonasController extends Controller
      */
     public function show($id_per)
     {
-        return view('pages/personas/read',['persona' => Persona::find($id_per)]);
+        return view('pages/personas/detail',['persona' => Persona::find($id_per)]);
     }
     /**
      * Show the form for editing the specified resource.

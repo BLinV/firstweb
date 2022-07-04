@@ -1,10 +1,12 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonasController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ContactoController;
 
 Route::view('/','pages/inicio')->name('inicio');
-Route::resource('personas',PersonasController::class)       //Personas
+//Personas
+Route::resource('personas',PersonasController::class)
     ->names('personas');
     //->middleware('auth');
 /*Route::get('personas',[PersonasController::class, 'index'])->name('personas.index');
@@ -15,6 +17,9 @@ Route::post('personas',[PersonasController::class, 'store'])->name('personas.sto
 Route::get('personas/{id_per}', [PersonasController::class, 'show'])->name('personas.show'); */           //Listar personas
 //Route::delete('personas/{persona}','App\Http\Controllers\PersonasController@destroy')->name('personas.destroy');  //Eliminar personas
 
+//Clientes
+Route::resource('clientes',ClientesController::class)
+    ->names('clientes');
 
 //Productos
 Route::view('producto','pages/productos/productos')

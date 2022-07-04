@@ -1,12 +1,11 @@
 @extends('layout.layout')
-
 @section('content')
 <div class="container">
+    <hr style="color: #0056b2;" />
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Registrarse') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -24,7 +23,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo electrónico') }}</label>
 
@@ -38,7 +36,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
 
@@ -52,7 +49,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirma Contraseña') }}</label>
 
@@ -73,5 +69,6 @@
             </div>
         </div>
     </div>
+    <hr style="color: #0056b2;" />
 </div>
 @endsection
