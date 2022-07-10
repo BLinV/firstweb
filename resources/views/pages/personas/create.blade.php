@@ -5,7 +5,7 @@
     <tr>
         <th colspan="4">Registrar colaborador</th>
     </tr>
-    <form action="{{ route('personas.store') }}" method="post">
+    <form action="{{ route('personas.store') }}" method="post" enctype="multipart/form-data">
         @include('pages.shared.perfrm',['btnText'=>'Guardar'])
     </form>
 </table>

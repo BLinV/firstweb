@@ -1,13 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="{{ Storage::url('images/icon.svg') }}" alt="logo" width="100" height="36"></a>
-        <!--<form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto me-2 mb-lg-0">
-                @guest
+                @guest  
                     <li class="nav-item {{ Request::is('tienda') }}">
                         <a class="nav-link" href="{{url('/tienda')}}">
                             <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
@@ -32,10 +28,6 @@
                             <li class="nav-item">
                                 @guest
                                     <form class="container-fluid" action="{{ url('/login') }}" method="GET" style="display:inline" aria-hidden="true">
-                                        <!-- <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">@</span>
-                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                        </div> -->
                                         <button class="btn btn-outline-success me-2" type="submit">Iniciar sesi&oacute;n</button>
                                     </form>
                                     <li>
@@ -71,7 +63,6 @@
                             Clientes
                         </a>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             @guest
@@ -84,10 +75,6 @@
                             <li class="nav-item">
                                 @guest
                                     <form class="container-fluid" action="{{ url('/login') }}" method="GET" style="display:inline" aria-hidden="true">
-                                        <!-- <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">@</span>
-                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                        </div> -->
                                         <button class="btn btn-outline-success me-2" type="submit">Iniciar sesi&oacute;n</button>
                                     </form>
                                     <li>

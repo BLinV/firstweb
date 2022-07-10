@@ -15,9 +15,9 @@ class CreateAlmacenProductoTable extends Migration
     {
         Schema::create('almacen-producto', function (Blueprint $table) {
             $table->integer('id_prod')->unsigned();
-            $table->foreign(['id_prod'])->references(['id_prod'])->on('productos');
+            $table->foreign('id_prod')->references('id_prod')->on('productos');
             $table->integer('id_proveedor')->unsigned();
-            $table->foreign(['id_proveedor'])->references(['id_proveedor'])->on('proveedores');
+            $table->foreign('id_proveedor')->references('id_proveedor')->on('productos');
             $table->integer('id_tiend')->unsigned();
             $table->foreign('id_tiend')->references('id_tiend')->on('tiendas');
             $table->primary(['id_prod', 'id_proveedor', 'id_tiend']);

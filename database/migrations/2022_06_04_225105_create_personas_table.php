@@ -17,12 +17,12 @@ class CreatePersonasTable extends Migration
             $table->Increments('id_per');
             $table->char('dni',8);
             $table->char('nom_per',70);
-                $table->string('foto')->nullable();
+            $table->string('foto')->nullable();
             $table->date('fec_nac');
             $table->char('est_civ',1);
             $table->char('num_tel_cel',9);
             $table->char('direccion',100);
-            $table->integer('id_cargo')->unsigned();
+            $table->integer('id_cargo')->unsigned()->nullable();
             $table->integer('id_tiend')->unsigned();
             $table->foreign('id_tiend')->references('id_tiend')->on('tiendas');
             $table->timestamps();

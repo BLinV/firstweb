@@ -10,26 +10,26 @@ Route::resource('personas',PersonasController::class)
     ->names('personas');
     //->middleware('auth');
 /*Route::get('personas',[PersonasController::class, 'index'])->name('personas.index');
-Route::get('personas/registro',[PersonasController::class, 'create'])->name('personas.create');         //Registro personas
-Route::get('personas/{id_per}/editar',[PersonasController::class, 'edit'])->name('personas.edit');      //Actualización personas - Carga datos
-Route::patch('personas/{id_per}',[PersonasController::class, 'update'])->name('personas.update');       //Actualización personas - Envía datos
-Route::post('personas',[PersonasController::class, 'store'])->name('personas.store');                   //Almacenar personas
-Route::get('personas/{id_per}', [PersonasController::class, 'show'])->name('personas.show'); */           //Listar personas
-//Route::delete('personas/{persona}','App\Http\Controllers\PersonasController@destroy')->name('personas.destroy');  //Eliminar personas
+Route::get('personas/registro',[PersonasController::class, 'create'])->name('personas.create');                     //Registro personas
+Route::get('personas/{id_per}/editar',[PersonasController::class, 'edit'])->name('personas.edit');                  //Actualización personas - Carga datos
+Route::patch('personas/{id_per}',[PersonasController::class, 'update'])->name('personas.update');                   //Actualización personas - Envía datos
+Route::post('personas',[PersonasController::class, 'store'])->name('personas.store');                               //Almacenar personas
+Route::get('personas/{id_per}', [PersonasController::class, 'show'])->name('personas.show');                        //Listar personas
+Route::delete('personas/{persona}','App\Http\Controllers\PersonasController@destroy')->name('personas.destroy'); */ //Eliminar personas
 
 //Clientes
 Route::resource('clientes',ClientesController::class)
     ->names('clientes');
 
 //Productos
-Route::view('producto','pages/productos/productos')
+Route::view('producto','pages/productos/list')
     ->name('producto')
     ->middleware('auth');
 
 //Contacto
-Route::view('contacto','pages/contacto')                                         //Vista de contacto
+Route::view('contacto','pages/contacto')
     ->name('contacto');
-Route::post('contacto',[ContactoController::class, 'store'])->name('contacto.store');    //Envío de mensaje
+Route::post('contacto',[ContactoController::class, 'store'])->name('contacto.store');
 
 //Logueo
 //Route::view('login','pages/login')->name('login'); //Post

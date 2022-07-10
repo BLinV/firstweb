@@ -38,7 +38,11 @@ class PersonasController extends Controller
      */
     public function store(CreatePersonaRequest $request)
     {
-        Persona::create($request->validated());
+        $persona = new Persona($request->validated());
+
+        $persona->foto = $request->file('foto')->store('img4');
+        $persona->save();
+
         return redirect()->route('personas.index')->with('acto','Los datos del colaborador fueron agregados correctamente.');
     }
     /**
@@ -80,9 +84,9 @@ class PersonasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Persona $persona)
     {
-        //$persona->delete();
-        //return redirect()->route("personas.index")->with('acto','El colaborador fue retirado correctamente.');
+        $persona->delete();
+        return redirect()->route("personas.index")->with('acto','El colaborador fue retirado correctamente.');
     }
 }

@@ -9,7 +9,10 @@
             @endauth
         </td>
         <td colspan="4">
-            Eliminar
+            <form action="{{ route('clientes.destroy',$cliente) }}" method='POST'>
+                @csrf @method('DELETE')
+                <button>Eliminar</button>
+            </form>
         </td>
     </tr>
     <tr>

@@ -1,5 +1,13 @@
         @csrf
         <tr>
+            <td colspan="2">
+                <div class="custom file">
+                    <input type="file" name="foto" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Seleccione archivo:</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
             <th>DNI</th>
             <td><input type="text" name="dni" maxlength="8" placeholder="Ingresa el DNI" value="{{ old('dni',$persona->dni) }}"><br>{{ $errors->first('dni') }}</td>
         </tr>

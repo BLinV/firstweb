@@ -1,4 +1,4 @@
-@extends('layout.layout') <!-- cambiar a detail -->
+@extends('layout.layout')
 @section('title','Personal | Detalle '. $persona->id_per)
 @section('content')
 <table cellpadding="3" cellspaceing="5">
@@ -9,7 +9,10 @@
             @endauth
         </td>
         <td colspan="4">
-            Eliminar
+            <form action="{{ route('personas.destroy',$persona) }}" method='POST'>
+                @csrf @method('DELETE')
+                <button>Eliminar</button>
+            </form>
         </td>
     </tr>
     <tr>
